@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>UserController.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+UserController.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">dawissem</span><span class="s2">.</span><span class="s1">bank</span><span class="s2">.</span><span class="s1">Controller</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">dawissem</span><span class="s2">.</span><span class="s1">bank</span><span class="s2">.</span><span class="s1">LoginResponse</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">dawissem</span><span class="s2">.</span><span class="s1">bank</span><span class="s2">.</span><span class="s1">Repository</span><span class="s2">.</span><span class="s1">UserRepo</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">dawissem</span><span class="s2">.</span><span class="s1">bank</span><span class="s2">.</span><span class="s1">Service</span><span class="s2">.</span><span class="s1">UserService</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">dawissem</span><span class="s2">.</span><span class="s1">bank</span><span class="s2">.</span><span class="s1">dto</span><span class="s2">.</span><span class="s1">LoginDTO</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s2">.</span><span class="s1">springframework</span><span class="s2">.</span><span class="s1">beans</span><span class="s2">.</span><span class="s1">factory</span><span class="s2">.</span><span class="s1">annotation</span><span class="s2">.</span><span class="s1">Autowired</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s2">.</span><span class="s1">springframework</span><span class="s2">.</span><span class="s1">http</span><span class="s2">.</span><span class="s1">ResponseEntity</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s2">.</span><span class="s1">springframework</span><span class="s2">.</span><span class="s1">security</span><span class="s2">.</span><span class="s1">access</span><span class="s2">.</span><span class="s1">annotation</span><span class="s2">.</span><span class="s1">Secured</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s2">.</span><span class="s1">springframework</span><span class="s2">.</span><span class="s1">stereotype</span><span class="s2">.</span><span class="s1">Controller</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s2">.</span><span class="s1">springframework</span><span class="s2">.</span><span class="s1">web</span><span class="s2">.</span><span class="s1">bind</span><span class="s2">.</span><span class="s1">annotation</span><span class="s2">.*;</span>
+<span class="s1">@Controller</span>
+<span class="s1">@CrossOrigin</span>
+<span class="s0">public class </span><span class="s1">UserController </span><span class="s2">{</span>
+    <span class="s1">@Autowired</span>
+    <span class="s0">private </span><span class="s1">UserService userService</span><span class="s2">;</span>
+
+
+    <span class="s1">@PostMapping</span><span class="s2">(</span><span class="s1">path </span><span class="s2">= </span><span class="s3">&quot;/login&quot;</span><span class="s2">)</span>
+    <span class="s0">public </span><span class="s1">ResponseEntity</span><span class="s2">&lt;?&gt; </span><span class="s1">loginUser</span><span class="s2">(</span><span class="s1">@RequestBody LoginDTO loginDTO</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s1">LoginResponse loginResponse </span><span class="s2">= </span><span class="s1">userService</span><span class="s2">.</span><span class="s1">loginUser</span><span class="s2">(</span><span class="s1">loginDTO</span><span class="s2">);</span>
+        <span class="s0">return </span><span class="s1">ResponseEntity</span><span class="s2">.</span><span class="s1">ok</span><span class="s2">(</span><span class="s1">loginResponse</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+<span class="s2">}</span></pre>
+</body>
+</html>
